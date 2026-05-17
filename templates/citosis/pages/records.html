@@ -1,0 +1,50 @@
+<section id="records" class="page">
+  <div class="page-head">
+    <div>
+      <h2>Tourism Records</h2>
+      <p>Store and manage destination details, categories, descriptions, and images.</p>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary" id="addRecordBtn"><i class="fa-solid fa-plus"></i>Add Record</button>
+    </div>
+  </div>
+
+  <div class="toolbar">
+    <div class="search-box">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input id="recordSearch" type="text" placeholder="Search place, location, category, or description" />
+    </div>
+    <div class="filter-box">
+      <i class="fa-solid fa-filter"></i>
+      <select id="recordCategoryFilter">
+        <option value="">All categories</option>
+        <option>Beach</option>
+        <option>Mountain</option>
+        <option>Heritage</option>
+        <option>Nature</option>
+        <option>Park</option>
+        <option>Event</option>
+        <option>Other</option>
+      </select>
+    </div>
+    <button class="btn btn-ghost" id="clearRecordFilters"><i class="fa-solid fa-eraser"></i>Reset Filters</button>
+  </div>
+
+  <div class="table-card">
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>Place</th>
+            <th>Location</th>
+            <th>Category</th>
+            <th>Updated</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="recordTable"></tbody>
+      </table>
+    </div>
+  </div>
+</section>

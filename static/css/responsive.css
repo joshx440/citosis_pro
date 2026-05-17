@@ -1,0 +1,30 @@
+@media (max-width: 1200px) {
+  .stats-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .dashboard-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 1080px) {
+  .login-card { grid-template-columns: 1fr; }
+  .login-hero { min-height: 320px; }
+  .toolbar { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 980px) {
+  .sidebar { transform: translateX(-100%); }
+  .sidebar.open { transform: translateX(0); }
+  .main { margin-left: 0; }
+  .mobile-only { display: inline-grid; }
+}
+
+@media (min-width: 981px) { .mobile-only, .overlay { display: none !important; } }
+
+@media (max-width: 720px) {
+  .auth-shell, .main, .topbar, .panel, .stat-card, .login-hero, .login-panel { padding-left: 18px; padding-right: 18px; }
+  .topbar { align-items: flex-start; }
+  .topbar-actions, .page-actions { width: 100%; justify-content: stretch; }
+  .search-box, .search-box input, .page-actions .btn, .topbar-actions .btn, .topbar-actions .search-box { width: 100%; }
+  .stats-grid, .cards-2, .hero-grid, .modal-grid { grid-template-columns: 1fr; }
+  .modal-grid .span-2 { grid-column: span 1; }
+  .list-item, .modal-foot, .confirm-actions, .helper-row { flex-direction: column; align-items: stretch; }
+  .action-btn, .btn { width: 100%; }
+}

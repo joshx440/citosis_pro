@@ -1,0 +1,18 @@
+<div id="app" class="app-shell hidden">
+  {% include 'citosis/partials/sidebar.html' %}
+
+  <div id="sidebarOverlay" class="overlay"></div>
+
+  <div class="main">
+    {% include 'citosis/partials/topbar.html' %}
+
+    <main class="content">
+      {% include 'citosis/pages/dashboard.html' %}
+      {% include 'citosis/pages/records.html' %}
+      {% include 'citosis/pages/visitors.html' %}
+      {% include 'citosis/pages/users.html' %}
+      {% include 'citosis/pages/recycle.html' %}
+      {% include 'citosis/pages/logs.html' %}
+    </main>
+  </div>
+</div>

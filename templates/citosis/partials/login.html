@@ -1,0 +1,94 @@
+{% load static %}
+<div id="loginPage" class="auth-shell">
+  <div class="login-card">
+    <section class="login-hero">
+      <div>
+        <div class="hero-badge">
+          <i class="fa-solid fa-compass"></i>
+          Tourism Office System
+        </div>
+        <h1>CITOSIS</h1>
+        <p>
+          A cleaner, faster, and more modern tourism system for managing destinations,
+          visitors, staff accounts, logs, and recovery workflows in one place.
+        </p>
+        <div class="hero-grid">
+          <div class="hero-stat">
+            <strong>Dashboard</strong>
+            <span>Live counters and summaries</span>
+          </div>
+          <div class="hero-stat">
+            <strong>Records</strong>
+            <span>Destination details with images</span>
+          </div>
+          <div class="hero-stat">
+            <strong>Visitors</strong>
+            <span>Status tracking and history</span>
+          </div>
+          <div class="hero-stat">
+            <strong>Recovery</strong>
+            <span>Recycle bin with restore tools</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-list">
+        <div class="hero-list-item"><i class="fa-solid fa-shield-halved"></i><span>Persistent database storage with backup and restore</span></div>
+        <div class="hero-list-item"><i class="fa-solid fa-moon"></i><span>Theme toggle with saved dark or light mode</span></div>
+        <div class="hero-list-item"><i class="fa-solid fa-pen-to-square"></i><span>Proper modal forms instead of basic prompts</span></div>
+      </div>
+    </section>
+
+    <section class="login-panel">
+      <div class="login-form-wrap">
+        <div class="login-logos" aria-label="Official tourism and city logos">
+          <img src="{% static 'img/Tourism - Edited.png' %}" alt="Tourism Office logo" />
+          <img src="{% static 'img/MC Seal.png' %}" alt="City of Malaybalay seal" />
+          <img class="logo-emphasis" src="{% static 'img/Saka.png' %}" alt="Saka ta Malaybalay logo" />
+        </div>
+        <h2>Welcome back</h2>
+        <p class="subtext">Sign in to access your tourism dashboard and continue managing your office data.</p>
+
+       
+
+        <form id="loginForm" novalidate>
+          <div class="field">
+            <label for="username">Username or Email</label>
+            <div class="input-wrap">
+              <i class="fa-solid fa-user leading"></i>
+              <input id="username" name="username" type="text" autocomplete="username" placeholder="Enter your username or email" required />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="password">Password</label>
+            <div class="input-wrap">
+              <i class="fa-solid fa-lock leading"></i>
+              <input id="password" name="password" type="password" autocomplete="current-password" placeholder="Enter your password" required />
+              <button type="button" class="toggle-pass" id="togglePasswordBtn" aria-label="Show password">
+                <i class="fa-regular fa-eye"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="helper-row">
+            <label class="checkbox">
+              <input type="checkbox" id="rememberSession" checked />
+              <span>Keep session on this device</span>
+            </label>
+            <button type="button" class="btn btn-secondary" id="preLoginThemeBtn">
+              <i class="fa-solid fa-circle-half-stroke"></i>
+              Theme
+            </button>
+          </div>
+
+          <button class="btn btn-primary btn-block" type="submit">
+            <i class="fa-solid fa-right-to-bracket"></i>
+            Login
+          </button>
+          <p id="loginError" class="error-text" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </div>
+</div>
