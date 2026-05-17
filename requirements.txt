@@ -4,3 +4,4 @@ django-cors-headers
 pillow
 PyMySQL
 python-dotenv
+gunicorn
