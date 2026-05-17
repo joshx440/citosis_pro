@@ -11,6 +11,7 @@ DEBUG = os.getenv('DEBUG', 'True').lower() == 'true'
 ALLOWED_HOSTS = [host.strip() for host in os.getenv('ALLOWED_HOSTS', '127.0.0.1,localhost,testserver').split(',') if host.strip()]
 use_sqlite = os.getenv('USE_SQLITE', 'True').lower() == 'true'
 APP_URL = os.getenv('APP_URL', 'http://localhost:8000').rstrip('/')
+ALLOWED_HOSTS = ["*"]
 
 if not use_sqlite:
     try:
