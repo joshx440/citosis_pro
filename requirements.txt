@@ -5,3 +5,4 @@ pillow
 PyMySQL
 python-dotenv
 gunicorn
+whitenoise
