@@ -1,16 +1,43 @@
 import os
 from pathlib import Path
+from urllib.parse import urlparse
 
 from dotenv import load_dotenv
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 load_dotenv(BASE_DIR / '.env')
 
+
+def _split_env_list(value):
+    return [item.strip() for item in value.split(',') if item.strip()]
+
+
+def _hostname_from_url(url):
+    if not url:
+        return ''
+    return urlparse(url).hostname or ''
+
 SECRET_KEY = os.getenv('SECRET_KEY', 'unsafe-dev-secret-key')
 DEBUG = os.getenv('DEBUG', 'True').lower() == 'true'
-ALLOWED_HOSTS = [host.strip() for host in os.getenv('ALLOWED_HOSTS', '127.0.0.1,localhost,testserver').split(',') if host.strip()]
 use_sqlite = os.getenv('USE_SQLITE', 'True').lower() == 'true'
 APP_URL = os.getenv('APP_URL', 'http://localhost:8000').rstrip('/')
+
+default_allowed_hosts = ['127.0.0.1', 'localhost', 'testserver']
+for candidate in (
+    _hostname_from_url(APP_URL),
+    os.getenv('RENDER_EXTERNAL_HOSTNAME', '').strip(),
+):
+    if candidate and candidate not in default_allowed_hosts:
+        default_allowed_hosts.append(candidate)
+
+raw_allowed_hosts = os.getenv('ALLOWED_HOSTS', '').strip()
+raw_csrf_trusted_origins = os.getenv('CSRF_TRUSTED_ORIGINS', '').strip()
+
+ALLOWED_HOSTS = _split_env_list(raw_allowed_hosts) if raw_allowed_hosts else default_allowed_hosts
+CSRF_TRUSTED_ORIGINS = (
+    _split_env_list(raw_csrf_trusted_origins) if raw_csrf_trusted_origins else [APP_URL]
+)
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 if not use_sqlite:
     try:
